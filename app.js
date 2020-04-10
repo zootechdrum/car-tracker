@@ -1,14 +1,19 @@
+require('dotenv').config()
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const { Sequelize } = require('sequelize');
 
-const db = new Sequelize('car-tracker','root','password', {
+
+//Uses dotenv npm package to hide pw and user info
+const db = new Sequelize('carTracker', process.env.DB_USER, process.env.DB_PASS ,
+  {
   host:'localhost',
   dialect:'mysql'
 });
 
   //Test DB
+  //Checks if db can successfully connect
   db.authenticate()
     .then(() => console.log('Database connected ...'))
     .catch(err => console.log("Error " + err))
