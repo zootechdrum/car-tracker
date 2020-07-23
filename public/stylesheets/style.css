@@ -4,7 +4,27 @@ form.login {
 }
 
 .scroll-menu {
+  margin-top: 25px;
   background-color: #333;
   overflow: auto;
   white-space: nowrap;
+}
+
+div.scroll-menu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  background-color: red;
+}
+
+#car-table {
+  margin-top: 14px;
+}
+
+.btn {
+  padding: 5px;
+  font-size: 8px;
+  letter-spacing: 1.2px;
 }
