@@ -7,6 +7,13 @@ $(document).ready(function () {
     $("#carForm").data("data", data.id);
   });
 
+  function getCars() {
+    console.log("Hello");
+    $.get("/api/car").then(function (data) {
+      console.log(data);
+    });
+  }
+
   $("#carFormSubmit").on("click", function (e) {
     e.preventDefault();
     car = {
@@ -22,6 +29,9 @@ $(document).ready(function () {
   function submitCar(car) {
     $.post("/api/car", car, function (data) {
       console.log(data);
+      location.reload("/members");
     });
   }
+
+  getCars();
 });

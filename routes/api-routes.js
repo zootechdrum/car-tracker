@@ -49,17 +49,24 @@ module.exports = function (app) {
   });
 
   app.get("/api/car", function (req, res) {
-    db.Car.create(req.body).then(function (dbCar) {
-      console.log(dbCar);
+    db.Car.findAll({
+      where: {
+        userId: req.user.id,
+      },
+    }).then(function (dbCar) {
+      if (dbCar[0]) {
+        res.json(dbCar[0].dataValues);
+      } else {
+        console.log("Did not work");
+      }
     });
   });
 
   app.post("/api/car", function (req, res) {
     UserId = req.user.id;
     req.body.UserId;
-    console.log(req.body);
     db.Car.create(req.body).then(function (dbCar) {
-      console.log(dbCar);
+      res.json(dbCar);
     });
   });
 };
