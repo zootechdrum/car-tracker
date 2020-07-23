@@ -1,0 +1,10 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+.scroll-menu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
