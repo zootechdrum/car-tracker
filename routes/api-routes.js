@@ -57,7 +57,7 @@ module.exports = function (app) {
       if (dbCar[0]) {
         res.json(dbCar[0].dataValues);
       } else {
-        console.log("Did not work");
+        res.json([]);
       }
     });
   });

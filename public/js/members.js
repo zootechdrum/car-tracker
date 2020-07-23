@@ -8,7 +8,6 @@ $(document).ready(function () {
   });
 
   function getCars() {
-    console.log("Hello");
     $.get("/api/car").then(function (data) {
       console.log(data);
     });
