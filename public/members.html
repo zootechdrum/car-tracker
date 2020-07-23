@@ -24,7 +24,39 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <h2>Welcome <span class="member-name"></span></h2>
+          <h2>Enter Car Information</h2>
+          <form id="carForm">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Make :</label>
+              <input
+                type="make"
+                class="form-control"
+                id="makeForForm"
+                aria-describedby="emailHelp"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Model</label>
+              <input
+                type="Model"
+                class="form-control"
+                id="modelForForm"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Year</label>
+              <input
+                type="Year"
+                class="form-control"
+                id="yearForForm"
+              />
+            </div>
+            <button id="carFormSubmit" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
       <div class="row">

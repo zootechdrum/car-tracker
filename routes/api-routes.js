@@ -47,4 +47,13 @@ module.exports = function (app) {
       });
     }
   });
+
+  app.post("/api/car", function (req, res) {
+    UserId = req.user.id;
+    req.body.UserId;
+    console.log(req.body);
+    db.Car.create(req.body).then(function (dbCar) {
+      console.log(dbCar);
+    });
+  });
 };
