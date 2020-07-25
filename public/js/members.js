@@ -34,25 +34,22 @@ $(document).ready(function () {
     });
   }
 
-  //   <th scope="row">1</th>
-  //   <td>Honda</td>
-  //   <td>Accord</td>
-  //   <td>2002</td>
-  //   <td><button type="button" class="btn table-btn btn-primary">Select</button></td>
-  // </tr>
-
   function addRow(carData) {
     carData.forEach((car) => {
       let tRow = $("<tr></tr>");
 
-      let lastRowNumber = $("#car-table tr:last-child th:last ").text();
-      let nextRowNumber = parseInt(lastRowNumber);
+      let nextRowNumber;
+      let lastRowNumber = $("#car-table tr:last th:first ").text();
 
-      nextRowNumber++;
+      if (lastRowNumber === "#") {
+        nextRowNumber = 1;
+      } else {
+        parseInt(lastRowNumber++);
 
-      // const th = $("<th scope='row'>" + nextRowNumber + "</th>");
+        nextRowNumber = lastRowNumber++;
+      }
 
-      const th = $("<th scope='row'>2</th>");
+      const th = $("<th scope='row'>" + nextRowNumber + "</th>");
       const tdMake = $("<td>" + car.make + "</td>");
       const tdModel = $("<td>" + car.model + "</td>");
       const tdYear = $("<td>" + car.year + "</td>");
