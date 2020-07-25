@@ -91,13 +91,10 @@ $(document).ready(function () {
     const selectDiv = $("#selected-car");
     selectDiv.empty();
     const h2 = $("<h2>Currently Selected Car : </h2>");
-    const p1 = $("<p>" + make + "</p>");
-    const p2 = $("<p>" + model + "</p>");
-    const p3 = $("<p>" + year + "</p>");
+    const h3 = $("<h3>" + make + " " + model + " " + year + "</h3>");
+
     selectDiv.append(h2);
-    selectDiv.append(p1);
-    selectDiv.append(p2);
-    selectDiv.append(p3);
+    selectDiv.append(h3);
   });
 
   $(document).on("click", ".btn-danger", function () {
