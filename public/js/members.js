@@ -56,7 +56,7 @@ $(document).ready(function () {
       const tdforButtons = $("<td style='width:  30.00%'>");
 
       const buttonSelec = $(
-        "<button type='button' class='btn table-btn btn-primary'>Select</button>"
+        "<button type='button' class='btn btn-select table-btn btn-primary'>Select</button>"
       ).data({
         make: car.make,
         model: car.model,
@@ -82,6 +82,23 @@ $(document).ready(function () {
       $("tbody:last").append(tRow);
     });
   }
+
+  $(document).on("click", ".btn-select", function () {
+    const make = $(this).data("make");
+    const model = $(this).data("model");
+    const year = $(this).data("year");
+
+    const selectDiv = $("#selected-car");
+    selectDiv.empty();
+    const h2 = $("<h2>Currently Selected Car : </h2>");
+    const p1 = $("<p>" + make + "</p>");
+    const p2 = $("<p>" + model + "</p>");
+    const p3 = $("<p>" + year + "</p>");
+    selectDiv.append(h2);
+    selectDiv.append(p1);
+    selectDiv.append(p2);
+    selectDiv.append(p3);
+  });
 
   $(document).on("click", ".btn-danger", function () {
     const carId = $(this).data("id");
