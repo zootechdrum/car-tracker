@@ -54,8 +54,15 @@ module.exports = function (app) {
         userId: req.user.id,
       },
     }).then(function (dbCar) {
+      console.log(dbCar);
       if (dbCar[0]) {
-        res.json(dbCar[0].dataValues);
+        const cars = [];
+
+        dbCar.forEach((car) => {
+          cars.push(car.dataValues);
+        });
+        console.log(cars);
+        res.json(cars);
       } else {
         res.json([]);
       }

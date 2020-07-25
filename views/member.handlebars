@@ -20,6 +20,9 @@
         </div>
     </nav>
     <div class="container">
+        {{#if nocar}}
+        <h4 class="alert alert-warning" role="alert">{{nocar}}</h4>
+        {{/if}}
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <h2>Enter Car Information</h2>
@@ -44,26 +47,21 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <table id="car-table" class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Make</th>
-                            <th scope="col">Model</th>
-                            <th scope="col">Year</th>
-                            <th scope="col">Select</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Honda</td>
-                            <td>Accord</td>
-                            <td>2002</td>
-                            <td><button type="button" class="btn table-btn btn-primary">Select</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div>
+                    <table id="car-table" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Make</th>
+                                <th scope="col">Model</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="row">
