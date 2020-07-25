@@ -32,3 +32,14 @@ div.scroll-menu a {
 .table-btn:nth-child(2) {
   margin-left: 9px;
 }
+
+.selected-car-h3 {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.selected-car {
+  background-color: yellow;
+  padding: 10px;
+  border-radius: 5px;
+}

@@ -91,10 +91,33 @@ $(document).ready(function () {
     const selectDiv = $("#selected-car");
     selectDiv.empty();
     const h2 = $("<h2>Currently Selected Car : </h2>");
-    const h3 = $("<h3>" + make + " " + model + " " + year + "</h3>");
+    const h3 = $(
+      "<h3 class='selected-car-h3'><span class='selected-car'>" +
+        make +
+        " " +
+        model +
+        " " +
+        year +
+        "</span></h3>"
+    );
+    const input = $(
+      "<div class='input-group mb-3'>" +
+        "<input type='text' class='project-input form-control' placeholder='Add Project' aria-label='Project Name' aria-describedby='basic-addon2'>" +
+        "<div class='input-group-append'>" +
+        "<button type='submit' id='projectSbmt' class='btn btn-primary'>Submit</button> " +
+        "</div> " +
+        "</div>"
+    );
+    const button = $("");
 
     selectDiv.append(h2);
     selectDiv.append(h3);
+    selectDiv.append(input);
+    selectDiv.append(button);
+  });
+
+  $(document).on("click", "#projectSbmt", function () {
+    console.log($(".project-input").val());
   });
 
   $(document).on("click", ".btn-danger", function () {

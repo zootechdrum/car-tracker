@@ -13,7 +13,7 @@
         <h4 class="alert alert-warning" role="alert">{{nocar}}</h4>
         {{/if}}
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6 mx-auto col-md-offset-3">
                 <h2>Enter Car Information</h2>
                 <form id="carForm">
                     <div class="form-group">
@@ -31,8 +31,9 @@
                         <input type="Year" class="form-control" id="yearForForm" />
                     </div>
                     <button id="carFormSubmit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
-            </form>
+
         </div>
         <div class="row">
             <div class="col-12">
@@ -53,23 +54,16 @@
                 </div>
             </div>
         </div>
-        {{!-- <div class="row">
-            <div class="col-12">
-                <div class="scroll-menu">
-                    <div>
-                        <a href="#home">Oil Change</a>
-                        <a href="#home">tire change</a>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+
         <div class="row">
             <div class="col-12">
-                <div id="selected-car"></div>
+                <div id="selected-car">
+
+                </div>
             </div>
 
         </div>
-    </div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
