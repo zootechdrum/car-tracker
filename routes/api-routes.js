@@ -76,4 +76,14 @@ module.exports = function (app) {
       res.json(dbCar);
     });
   });
+
+  app.delete("/api/car/:id", function (req, res) {
+    db.Car.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function (dbCar) {
+      res.json(dbCar);
+    });
+  });
 };

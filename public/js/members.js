@@ -65,6 +65,7 @@ $(document).ready(function () {
       const buttonDel = $(
         "<button type='button' class='btn table-btn btn-danger'>Delete</button>"
       ).data({
+        id: car.id,
         make: car.make,
         model: car.model,
         year: car.year,
@@ -81,6 +82,16 @@ $(document).ready(function () {
       $("tbody:last").append(tRow);
     });
   }
+
+  $(document).on("click", ".btn-danger", function () {
+    const carId = $(this).data("id");
+    $.ajax({
+      method: "DELETE",
+      url: "/api/car/" + carId,
+    }).then(function (data) {
+      location.reload("/members");
+    });
+  });
 
   getCars();
 });
