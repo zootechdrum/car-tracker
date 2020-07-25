@@ -53,19 +53,30 @@ $(document).ready(function () {
       const tdMake = $("<td>" + car.make + "</td>");
       const tdModel = $("<td>" + car.model + "</td>");
       const tdYear = $("<td>" + car.year + "</td>");
-      const button = $(
-        "<td><button type='button' class='btn table-btn btn-primary'>Select</button></td>"
+      const tdforButtons = $("<td style='width:  30.00%'>");
+
+      const buttonSelec = $(
+        "<button type='button' class='btn table-btn btn-primary'>Select</button>"
+      ).data({
+        make: car.make,
+        model: car.model,
+        year: car.year,
+      });
+      const buttonDel = $(
+        "<button type='button' class='btn table-btn btn-danger'>Delete</button>"
       ).data({
         make: car.make,
         model: car.model,
         year: car.year,
       });
 
+      tdforButtons.append(buttonSelec);
+      tdforButtons.append(buttonDel);
       tRow.append(th);
       tRow.append(tdMake);
       tRow.append(tdModel);
       tRow.append(tdYear);
-      tRow.append(button);
+      tRow.append(tdforButtons);
 
       $("tbody:last").append(tRow);
     });
