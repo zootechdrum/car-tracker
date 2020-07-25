@@ -24,8 +24,8 @@ div.scroll-menu a {
 }
 
 .table-btn {
-  padding: 5px;
-  font-size: 8px;
+  padding: 4px !important;
+  font-size: 3px;
   letter-spacing: 1.2px;
 }
 
