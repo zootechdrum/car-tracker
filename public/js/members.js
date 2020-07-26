@@ -58,6 +58,7 @@ $(document).ready(function () {
       const buttonSelec = $(
         "<button type='button' class='btn btn-select table-btn btn-primary'>Select</button>"
       ).data({
+        id: car.id,
         make: car.make,
         model: car.model,
         year: car.year,
@@ -84,6 +85,7 @@ $(document).ready(function () {
   }
 
   $(document).on("click", ".btn-select", function () {
+    const carId = $(this).data("id");
     const make = $(this).data("make");
     const model = $(this).data("model");
     const year = $(this).data("year");
@@ -104,20 +106,23 @@ $(document).ready(function () {
       "<div class='input-group mb-3'>" +
         "<input type='text' class='project-input form-control' placeholder='Add Project' aria-label='Project Name' aria-describedby='basic-addon2'>" +
         "<div class='input-group-append'>" +
-        "<button type='submit' id='projectSbmt' class='btn btn-primary'>Submit</button> " +
+        "<button type='submit' data-carId=" +
+        carId +
+        "  class=' projectSbmt btn btn-primary'>Submit</button> " +
         "</div> " +
         "</div>"
     );
-    const button = $("");
 
     selectDiv.append(h2);
     selectDiv.append(h3);
     selectDiv.append(input);
-    selectDiv.append(button);
   });
 
-  $(document).on("click", "#projectSbmt", function () {
-    console.log($(".project-input").val());
+  $(document).on("click", ".projectSbmt", function () {
+    const task = $(".project-input").val();
+    const carId = $(this).attr("data-carId");
+
+    addProjects(task);
   });
 
   $(document).on("click", ".btn-danger", function () {
@@ -129,6 +134,14 @@ $(document).ready(function () {
       location.reload("/members");
     });
   });
+
+  function addProjects(proj) {
+    const ul = $(".car-projects");
+    const li = $("<li>");
+    const anchor = $("<a>" + proj + "</a>");
+    li.append(anchor);
+    ul.append(li);
+  }
 
   getCars();
 });
