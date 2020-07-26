@@ -95,9 +95,9 @@ $(document).ready(function () {
     const h2 = $("<h2>Currently Selected Car : </h2>");
     const h3 = $(
       "<h3 class='selected-car-h3'><span class='selected-car'>" +
-        make +
+        make.toUpperCase() +
         " " +
-        model +
+        model.toUpperCase() +
         " " +
         year +
         "</span></h3>"
@@ -120,9 +120,13 @@ $(document).ready(function () {
 
   $(document).on("click", ".projectSbmt", function () {
     const task = $(".project-input").val();
-    const carId = $(this).attr("data-carId");
 
-    addProjects(task);
+    if (task) {
+      const carId = $(this).attr("data-carId");
+      addProjects(task);
+    }
+
+    $(".project-input").val("");
   });
 
   $(document).on("click", ".btn-danger", function () {
