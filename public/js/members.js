@@ -116,14 +116,22 @@ $(document).ready(function () {
     selectDiv.append(h2);
     selectDiv.append(h3);
     selectDiv.append(input);
+
+    getProjects(carId);
   });
 
   $(document).on("click", ".projectSbmt", function () {
-    const task = $(".project-input").val();
+    const CarId = parseInt($(this).attr("data-carId"));
+    const task = {
+      project: $(".project-input").val(),
+      CarId: CarId,
+    };
 
-    if (task) {
-      const carId = $(this).attr("data-carId");
-      addProjects(task);
+    if (task.project) {
+      $.post("/api/project", task, function (data) {
+        console.log("Car Added");
+      });
+      addProjects(task.project);
     }
 
     $(".project-input").val("");
@@ -138,6 +146,15 @@ $(document).ready(function () {
       location.reload("/members");
     });
   });
+
+  function getProjects(carId) {
+    $.get("/api/project/" + carId).then(function (data) {
+      if (data.length !== 0) {
+        console.log(data);
+        addRow(data);
+      }
+    });
+  }
 
   function addProjects(proj) {
     const ul = $(".car-projects");
