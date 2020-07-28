@@ -13,8 +13,18 @@ module.exports = function (app) {
       where: {
         CarId: req.params.id,
       },
-    }).then(function (dbCar) {
-      console.log(dbCar);
+    }).then(function (dbProjects) {
+      if (dbProjects[0]) {
+        const projects = [];
+
+        dbProjects.forEach((project) => {
+          projects.push(project.dataValues);
+        });
+
+        res.json(projects);
+      } else {
+        res.json([]);
+      }
     });
   });
 };

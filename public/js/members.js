@@ -131,7 +131,7 @@ $(document).ready(function () {
       $.post("/api/project", task, function (data) {
         console.log("Car Added");
       });
-      addProjects(task.project);
+      addProjects([task]);
     }
 
     $(".project-input").val("");
@@ -149,20 +149,25 @@ $(document).ready(function () {
 
   function getProjects(carId) {
     $.get("/api/project/" + carId).then(function (data) {
-      if (data.length !== 0) {
-        console.log(data);
-        addRow(data);
+      if (data) {
+        addProjects(data);
       }
     });
   }
 
   function addProjects(proj) {
-    const ul = $(".car-projects");
-    const li = $("<li>");
-    const anchor = $("<a>" + proj + "</a>");
-    li.append(anchor);
-    ul.append(li);
+    proj.forEach((project) => {
+      const ul = $(".car-projects");
+      const li = $("<li class='car-project'>").data(proj);
+      const anchor = $("<a>" + project.project + "</a>");
+      li.append(anchor);
+      ul.append(li);
+    });
   }
+
+  $(document).on("click", ".car-project", function () {
+    console.log($(this).data());
+  });
 
   getCars();
 });
