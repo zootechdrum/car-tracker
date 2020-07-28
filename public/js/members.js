@@ -158,7 +158,9 @@ $(document).ready(function () {
   function addProjects(proj) {
     proj.forEach((project) => {
       const ul = $(".car-projects");
-      const li = $("<li class='car-project'>").data(proj);
+      const li = $(
+        "<li type='button' class='car-project' data-toggle='modal' data-target='#staticBackdrop'>"
+      ).data(proj);
       const anchor = $("<a>" + project.project + "</a>");
       li.append(anchor);
       ul.append(li);

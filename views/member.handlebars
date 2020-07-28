@@ -1,82 +1,86 @@
-<body>
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/logout">
-                    Logout
-                </a>
-            </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/logout">
+                Logout
+            </a>
         </div>
-    </nav>
-    <div class="container">
-        {{> model }}
-        {{#if nocar}}
-        <h4 class="alert alert-warning" role="alert">{{nocar}}</h4>
-        {{/if}}
-        <div class="row">
-            <div class="col-md-6 mx-auto col-md-offset-3">
-                <h2>Enter Car Information</h2>
-                <form id="carForm">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Make :</label>
-                        <input type="make" class="form-control" id="makeForForm" aria-describedby="emailHelp" />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Model</label>
-                        <input type="Model" class="form-control" id="modelForForm" />
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Year</label>
-                        <input type="Year" class="form-control" id="yearForForm" />
-                    </div>
-                    <button id="carFormSubmit" type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+    </div>
+</nav>
+<div class="container">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+        Launch static backdrop modal
+    </button>
 
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div>
-                    <table id="car-table" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Make</th>
-                                <th scope="col">Model</th>
-                                <th scope="col">Year</th>
-                                <th scope="col">Select</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+    {{> model}}
+
+    {{#if nocar}}
+    <h4 class="alert alert-warning" role="alert">{{nocar}}</h4>
+    {{/if}}
+    <div class="row">
+        <div class="col-md-6 mx-auto col-md-offset-3">
+            <h2>Enter Car Information</h2>
+            <form id="carForm">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Make :</label>
+                    <input type="make" class="form-control" id="makeForForm" aria-describedby="emailHelp" />
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Model</label>
+                    <input type="Model" class="form-control" id="modelForForm" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Year</label>
+                    <input type="Year" class="form-control" id="yearForForm" />
+                </div>
+                <button id="carFormSubmit" type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                <div id="selected-car">
-                </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <table id="car-table" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Make</th>
+                            <th scope="col">Model</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Select</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
-
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div>
-                    <ul class="car-projects"></ul>
+    </div>
 
-                </div>
+    <div class="row">
+        <div class="col-12">
+            <div id="selected-car">
             </div>
         </div>
 
     </div>
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <ul class="car-projects"></ul>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/members.js"></script>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/members.js"></script>
 </body>
 
 </html>
