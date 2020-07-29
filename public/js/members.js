@@ -150,6 +150,7 @@ $(document).ready(function () {
   function getProjects(carId) {
     $.get("/api/project/" + carId).then(function (data) {
       if (data) {
+        console.log(data);
         addProjects(data);
       }
     });
@@ -169,6 +170,32 @@ $(document).ready(function () {
 
   $(document).on("click", ".car-project", function () {
     console.log($(this).data());
+  });
+
+  $(document).on("click", "#addToolBtn", function () {
+    addTool();
+  });
+
+  $(document).on("keypress", function (e) {
+    if (e.which == 13) {
+      if ($("#addTool").is(":focus")) {
+        addTool();
+      }
+    }
+  });
+
+  function addTool() {
+    const ul = $("#toolList");
+    const text = $("#addTool").val().trim();
+    const li = $("<li>" + text + "</li>");
+    ul.append(li);
+  }
+
+  $(document).on("click", "#saveTool", function () {
+    const tools = [];
+    $("#toolList li").each(function () {
+      tools.push($(this).text());
+    });
   });
 
   getCars();

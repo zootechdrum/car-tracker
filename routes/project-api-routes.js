@@ -20,7 +20,6 @@ module.exports = function (app) {
         dbProjects.forEach((project) => {
           projects.push(project.dataValues);
         });
-
         res.json(projects);
       } else {
         res.json([]);
