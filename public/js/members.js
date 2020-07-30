@@ -157,11 +157,12 @@ $(document).ready(function () {
   }
 
   function addProjects(proj) {
+    console.log(proj);
     proj.forEach((project) => {
       const ul = $(".car-projects");
       const li = $(
         "<li type='button' class='car-project' data-toggle='modal' data-target='#staticBackdrop'>"
-      ).data(proj);
+      ).data(proj[0]);
       const anchor = $("<a>" + project.project + "</a>");
       li.append(anchor);
       ul.append(li);
@@ -169,8 +170,14 @@ $(document).ready(function () {
   }
 
   $(document).on("click", ".car-project", function () {
-    console.log($(this).data());
+    const title = $(this).data("project");
+    console.log(title);
+    updateModalTitle(title);
   });
+
+  function updateModalTitle(title) {
+    const newTitle = $(".modal-title").text(title);
+  }
 
   $(document).on("click", "#addToolBtn", function () {
     addTool();
